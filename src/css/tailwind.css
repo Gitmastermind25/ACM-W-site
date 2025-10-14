@@ -1,0 +1,404 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   Global Styles
+========================= */
+body {
+  background-color: #000; /* Dark background */
+  color: #fff; /* Default text white */
+  font-family: 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #FF69B4;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #FFC0CB;
+}
+
+button {
+  background: linear-gradient(to right, #FF69B4, #FFC0CB);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   Navbar
+========================= */
+/* Navbar container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;
+  margin: 0 auto;
+  padding: 12px 24px; /* increased padding for bigger height */
+  background-color: white;
+  border-bottom: 2px solid #FF69B4;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo img {
+  height: 70px; 
+  width: 70px; 
+}
+
+.navbar-logo span {
+  font-size: 2.5rem; /* bigger brand name */
+  font-weight: bold;
+  color: #FF69B4;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 40px; /* more space between links */
+  align-items: center;
+}
+
+.navbar-links a {
+  color: #FF69B4;
+  font-weight: 600;
+  font-size: 1.1rem; /* bigger link text */
+  transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.navbar-links a:hover {
+  color: #FFC0CB;
+  transform: scale(1.1); /* slightly larger hover scale */
+}
+
+/* Optional: increase button size */
+.navbar-links button {
+  padding: 0.75rem 1.5rem; /* bigger button */
+  font-size: 1rem;
+}
+
+/* =========================
+   Project Section
+========================= */
+.project {
+  padding: 65px 0;
+  position: relative;
+  background-color: #111; /* Darker background */
+}
+
+.project h2 {
+  font-size: 45px;
+  font-weight: 700;
+  text-align: center;
+  color: #FF69B4;
+  margin-bottom: 20px;
+}
+
+.project p {
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  margin: 14px auto 30px;
+  text-align: center;
+  width: 56%;
+}
+
+/* Project navigation tabs */
+.project .nav.nav-pills {
+  width: 50%;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.project .nav.nav-pills .nav-item {
+  width: 50%;
+}
+
+.project .nav-link {
+  background-color: #000;
+  color: #FF69B4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 50px;
+  font-size: 22px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  z-index: 0;
+}
+
+.project .nav-link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90.21deg, #FF69B4 -5.91%, #FFC0CB 111.58%);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+
+.project .nav-link.active::before {
+  width: 100% !important;
+}
+
+.project .nav-link.active {
+  border: 1px solid #FF69B4;
+}
+
+/* Project image boxes */
+.proj-imgbx {
+  position: relative;
+  border-radius: 30px;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  margin: 50px 20px 24px 20px;
+  width: 290px;
+  height: 300px;
+  background-color: #111;
+}
+
+.proj-imgbx::before {
+  content: "";
+  background: linear-gradient(90.21deg, #FF69B4 -5.91%, #FFC0CB 111.58%);
+  opacity: 0.85;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  transition: 0.4s ease-in-out;
+}
+
+.proj-imgbx:hover::before {
+  height: 100%;
+}
+
+.proj-txtx {
+  position: absolute;
+  text-align: center;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+  width: 100%;
+}
+
+.proj-imgbx:hover .proj-txtx {
+  top: 50%;
+  opacity: 1;
+}
+
+.proj-txtx h4 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1.1em;
+  color: #fff;
+}
+
+.proj-txtx span {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+  color: #FFC0CB;
+}
+
+.background-image-right {
+  position: absolute;
+  top: -0.15%;
+  height: 100%;
+  width: 100%;
+  right: 0;
+  z-index: -4;
+}
+
+/* =========================
+   Cards Section
+========================= */
+.card_section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.card {
+  background: linear-gradient(145deg, #1f1f1f, #000);
+  margin: 10px;
+  width: 350px;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.5);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 99%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(315deg, #FF69B4 0%, #FFC0CB 74%);
+  transition: 0.4s;
+  z-index: 1;
+  opacity: 0;
+}
+
+.card:hover::before {
+  top: 0;
+  opacity: 0.7;
+}
+
+.card_image {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+
+.card_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card_image img {
+  transform: scale(1.1);
+}
+
+.card_panel {
+  padding: 1.6rem 1rem 1rem 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card_main_title h2 {
+  font-size: 1.4rem;
+  color: #FF69B4;
+  font-weight: 500;
+}
+
+.card_para p {
+  color: #fff;
+  font-weight: 400;
+}
+
+.card_readmore {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #FF69B4, #FFC0CB);
+  color: #000;
+  font-weight: 500;
+}
+
+/* =========================
+   Tags Section
+========================= */
+.tags_section ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tags_section ul li {
+  margin: 1%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #000;
+  font-weight: 500;
+  background-color: #FF69B4;
+}
+
+/* =========================
+   Blogs Heading
+========================= */
+.blogs-heading {
+  text-align: center;
+  color: #FF69B4;
+  font-size: 3rem;
+  margin: 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media only screen and (max-width: 1200px) {
+  .card_section {
+    justify-content: space-evenly;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .project {
+    background-color: #111;
+  }
+
+  .project .nav-link {
+    padding: 17px 25px;
+    font-size: 18px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+/* =========================
+   Hero Background Animation
+========================= */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-background-animated {
+  background: linear-gradient(270deg, #ff7eb3, #ff758c, #ff7eb3, #ff758c);
+  background-size: 600% 600%;
+  animation: gradientMove 15s ease infinite;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.5; /* subtle overlay */
+}
